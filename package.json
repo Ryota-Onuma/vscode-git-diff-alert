@@ -1,8 +1,9 @@
 {
-  "name": "git-diff-monitor",
-  "displayName": "git-diff-monitor",
-  "description": "This extension checks git-diff to keep your commit small.",
-  "version": "0.0.1",
+  "name": "vscode-git-diff-alert",
+  "displayName": "Vscode git diff Alert",
+  "description": "When a file is saved, this extension run git diff to keep your commit small.",
+  "version": "1.0.1",
+  "publisher": "Ryota-Onuma",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -10,25 +11,32 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "git-diff-monitor.helloWorld",
-        "title": "Hello World"
+        "command": "git-diff-alert.run",
+        "title": "GitDiffAlert: run"
       }
-    ]
-  },
-  "menus": {
-    "editor/context": [
-      {
-        "when": "editorFocus",
-        "command": "git-diff-monitor.helloWorld",
-        "group": "myGroup@1"
-      }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "gitDiffalert",
+      "properties": {
+          "gitDiffalert.threshold": {
+            "type": "number",
+            "description": "This extension alerts when your lines of code exceed this threshold.",
+            "default": 100
+          },
+          "gitDiffalert.baseBranch": {
+            "type": "string",
+            "description": "This extension runs git-diff between base branch and active branch.",
+            "default": "main"
+          }
+          }
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
