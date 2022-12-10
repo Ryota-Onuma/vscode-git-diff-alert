@@ -1,9 +1,10 @@
 {
   "name": "vscode-git-diff-alert",
-  "displayName": "Vscode git diff Alert",
-  "description": "When a file is saved, this extension run git diff to keep your commit small.",
-  "version": "1.0.1",
+  "displayName": "VScode git diff Alert",
+  "description": "When a file is saved, this extension runs git diff to keep your commit small.",
+  "version": "1.0.2",
   "publisher": "Ryota-Onuma",
+  "repository": { "type": "git", "url": "https://github.com/Ryota-Onuma/vscode-git-diff-alert.git" },
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -23,14 +24,14 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "gitDiffalert",
+      "title": "gitDiffAlert",
       "properties": {
-          "gitDiffalert.threshold": {
+          "gitDiffAlert.threshold": {
             "type": "number",
             "description": "This extension alerts when your lines of code exceed this threshold.",
             "default": 100
           },
-          "gitDiffalert.baseBranch": {
+          "gitDiffAlert.baseBranch": {
             "type": "string",
             "description": "This extension runs git-diff between base branch and active branch.",
             "default": "main"
